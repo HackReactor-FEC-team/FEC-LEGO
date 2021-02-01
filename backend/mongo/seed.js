@@ -31,7 +31,7 @@ MongoClient.connect(url, (err, client) => {
   // make a bunch of items
 
   let legos = [];
-
+  // make lego array
   let ducatiPics = [
     'https://legopics.s3.us-east-2.amazonaws.com/Ducati/1',
     'https://legopics.s3.us-east-2.amazonaws.com/Ducati/2',
@@ -47,7 +47,7 @@ MongoClient.connect(url, (err, client) => {
     'https://legopics.s3.us-east-2.amazonaws.com/Ducati/12',
     'https://legopics.s3.us-east-2.amazonaws.com/Ducati/13',
   ];
-
+  // create array linking to s3 images of Lego Product
   const ducati = {
     brand: 'TechNic',
     name: 'Ducati Panigale V4 R',
@@ -61,7 +61,9 @@ MongoClient.connect(url, (err, client) => {
     pictures: ducatiPics,
     itemNum: 42107,
   };
+  // create ducati objject
   legos.push(ducati);
+  // add ducati to lego array
 
   for (let i = 0; i < 100; i += 1) {
     let legoItem = {
@@ -80,8 +82,13 @@ MongoClient.connect(url, (err, client) => {
     legos.push(legoItem);
     // visual feedback always feels nice!
   }
+  // make a bunch of fake data and add it to legos array
+
   legoCollection.insertMany(legos);
+  // add all the seed data to the legos db
 
   console.log('Database seeded! :)');
+  // let user know db was seeded
+
   client.close();
 });
