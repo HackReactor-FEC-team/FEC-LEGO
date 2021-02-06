@@ -114,7 +114,9 @@ describe('front end testing', () => {
 });
 
 /*  *********************** CONNECTION TESTING ******************** */
-// request.get('/');
+
+// after multiple long HD tickets I am still unable to get
+// the first test to pass. Server is out of sync
 describe('Connection Tests', () => {
   it('Sacrificial Test', async (done) => {
     supertest(server)
@@ -146,7 +148,7 @@ describe('Connection Tests', () => {
   });
 
   it('Response body should not return undefined', async (done) => {
-    const res = await request.get('/legos');
+    const res = await request.get('/legos/ducati');
     expect(res.body).toBeDefined();
     done();
   });
